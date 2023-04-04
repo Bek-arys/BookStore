@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/Bek-arys/assignment-3/pkg/models"
+	"github.com/Bek-arys/BookStore/pkg/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Bek-arys/assignment-3/pkg/config"
-	"github.com/Bek-arys/assignment-3/pkg/models"
+	"github.com/Bek-arys/BookStore/pkg/config"
+	"github.com/Bek-arys/BookStore/pkg/models"
 	"github.com/gin-gonic/gin"
 )
 

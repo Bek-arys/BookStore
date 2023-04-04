@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/Bek-arys/assignment-3/pkg/controllers"
+	"github.com/Bek-arys/BookStore/pkg/controllers"
 	"github.com/gin-gonic/gin"
 )
 

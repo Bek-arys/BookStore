@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Bek-arys/assignment-3/pkg/config"
-	"github.com/Bek-arys/assignment-3/pkg/routes"
+	"github.com/Bek-arys/BookStore/pkg/config"
+	"github.com/Bek-arys/BookStore/pkg/routes"
 	"github.com/gin-gonic/gin"
 )
 
