@@ -60,6 +60,7 @@ func UpdateBook(c *gin.Context) {
 	}
 	c.BindJSON(&book)
 	config.DB.Save(&book)
+	c.JSON(200, &book)
 }
 
 func SearchBookByTitle(c *gin.Context) {

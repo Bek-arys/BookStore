@@ -1,7 +1,10 @@
 package config
 
 import (
+	"os"
+
 	"github.com/Bek-arys/BookStore/pkg/models"
+	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -9,7 +12,13 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	db, err := gorm.Open(postgres.Open("postgres://postgres:Bek@rys_2003@localhost:5432/assignment_3"), &gorm.Config{})
+	errr := godotenv.Load("../../.env")
+
+	if errr != nil {
+		panic(errr)
+	}
+	
+	db, err := gorm.Open(postgres.Open(os.Getenv("DB_SOURCE")), &gorm.Config{})
 
 	if err != nil {
 		panic(err)

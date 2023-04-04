@@ -1,14 +1,17 @@
-FROM golang:1.17-alpine AS builder
+FROM golang:1.18.4-alpine AS builder
 
-RUN mkdir /myproject
+WORKDIR /app
 
-WORKDIR /myproject
+COPY . .
 
-RUN go get github.com/Bek-arys/BookStore/cmd/main
-RUN cd /myproject && git clone https://github.com/Bek-arys/BookStore.git
+RUN go build -o main /app/cmd/main/main.go
 
-RUN cd /myproject/cmd/main && go build
+FROM alpine:latest
+
+COPY --from=builder /app/main /app/main
+
+WORKDIR /app
 
 EXPOSE 8080
 
-ENTRYPOINT ["/myproject/cmd/main/main"]
+CMD ["/app/main"]
