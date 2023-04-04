@@ -1,4 +1,4 @@
-module github.com/Bek-arys/assignment-3
+module github.com/Bek-arys/BookStore
 
 go 1.19
 

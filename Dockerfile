@@ -4,8 +4,11 @@ RUN mkdir /myproject
 
 WORKDIR /myproject
 
-COPY . .
+RUN go get github.com/Bek-arys/BookStore/cmd/main
+RUN cd /myproject && git clone https://github.com/Bek-arys/BookStore.git
 
-RUN go build -o main "HP/Desktop/assignment-3/bookstore/cmd/main.go"
+RUN cd /myproject/cmd/main && go build
 
-CMD ["./main"]
+EXPOSE 8080
+
+ENTRYPOINT ["/myproject/cmd/main/main"]
