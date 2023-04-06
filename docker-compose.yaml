@@ -2,20 +2,20 @@ version: "3.9"
 services:
   postgres:
     image: postgres:15.2-alpine
+    restart: always
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=Bek@rys_2003
+      - DB_NAME=assignment_3
     ports:
-      - 5433:5432
-  project:
+      - 5436:5432
+  project: 
     build: 
       context: .
       dockerfile: Dockerfile
-    environment:
-      DATABASE_HOST: postgres
-      DATABASE_PORT: 5432
-      DATABASE_USER: postgres
-      DATABASE_PASSWORD: Bek@rys_2003
-      DATABASE_NAME: assignment_3
     ports:
       - "8080:8080"
     depends_on: 
       - postgres
+    entrypoint: ["/app/wait-for-it.sh", "postgres:5432", "--"]
     command: ["/app/main"]
